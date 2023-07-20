@@ -49,6 +49,7 @@ exports.OrderProduct = class OrderProduct
         }
         await this.cart.waitFor({state:"visible"})
         await this.cart.click()
+        await this.page.waitForURL("https://rahulshettyacademy.com/client/dashboard/cart", {timeout: 40000})
         await expect(this.page).toHaveURL('https://rahulshettyacademy.com/client/dashboard/cart')
         await this.checkout.waitFor({state:"visible"})
         await this.checkout.click()
